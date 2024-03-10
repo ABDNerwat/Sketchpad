@@ -1,0 +1,40 @@
+/* * {
+  outline: 2px solid red;
+} */
+@font-face {
+    font-family: viceCity;
+    src: url(photos/rage\ italic.ttf);
+}
+html{
+    background-image: url("photos/vice_city_stories_by_lasercrome_d2k552z.jpg");
+    background-position: bottom left;
+    background-repeat: no-repeat;
+    margin: 0;
+    height: 100%;
+}   
+.header{
+    font-family: viceCity;
+    text-align: center;
+    font-size: 70px;
+    color: #ff00a2;
+}
+.size{
+    text-align: center;
+    font-size: large;
+    padding: 5px;
+}
+.container{
+    display: flex;
+    height: 100%;
+}
+.options{
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    gap: 30px;
+}
+button{
+    font-size: 35px;
+    font-family: viceCity;
+    background-color: rgba(2, 2, 2, 0)
+}
