@@ -3,9 +3,11 @@ let cells = document.querySelectorAll(".cell");
 let erase = false;
 console.log(cells);
 let drawState=false;
+let sketch_color = document.getElementById("sketch_col").value;
 
 side.addEventListener("keydown", (e) => {
     if (e.keyCode === 13){
+        let sketch_color = document.getElementById("sketch_col").value;
         let erase = false;
         const sketch = document.querySelector("#sketch");
         for (let i = 0; i < sid; i++){
@@ -29,7 +31,7 @@ side.addEventListener("keydown", (e) => {
         cells.forEach((item) => {
             item.addEventListener("mouseenter", () =>{
                 if (!erase && drawState){ 
-                    item.setAttribute("style", "background-color:black");
+                    item.setAttribute("style", `background-color:${sketch_color}`);
                 }
                 else if (drawState){
                     item.setAttribute("style", "background-color:white");
@@ -37,7 +39,7 @@ side.addEventListener("keydown", (e) => {
             });
             item.addEventListener("mousedown", () => {
                 if (!erase){ 
-                    item.setAttribute("style", "background-color:black");
+                    item.setAttribute("style", `background-color:${sketch_color}`);
                 }
                 else{
                     item.setAttribute("style", "background-color:white");
@@ -60,7 +62,7 @@ sketch.addEventListener("mouseenter", () => {drawState = false;});
 cells.forEach((item) => {
     item.addEventListener("mouseenter", () =>{
         if (!erase && drawState){ 
-            item.setAttribute("style", "background-color:black");
+            item.setAttribute("style", `background-color:${sketch_color}`);
         }
         else if (drawState){
             item.setAttribute("style", "background-color:white");
@@ -68,7 +70,7 @@ cells.forEach((item) => {
     });
     item.addEventListener("mousedown", () => {
         if (!erase){ 
-            item.setAttribute("style", "background-color:black");
+            item.setAttribute("style", `background-color:${sketch_color}`);
         }
         else{
             item.setAttribute("style", "background-color:white");
@@ -77,6 +79,7 @@ cells.forEach((item) => {
 });
 
 clear.addEventListener("click", () =>{
+    let sketch_color = document.getElementById("sketch_col").value;
     let erase = false;
         const sketch = document.querySelector("#sketch");
         for (let i = 0; i < sid; i++){
@@ -100,7 +103,7 @@ clear.addEventListener("click", () =>{
         cells.forEach((item) => {
             item.addEventListener("mouseenter", () =>{
                 if (!erase && drawState){ 
-                    item.setAttribute("style", "background-color:black");
+                    item.setAttribute("style", `background-color:${sketch_color}`);
                 }
                 else if (drawState){
                     item.setAttribute("style", "background-color:white");
@@ -108,11 +111,34 @@ clear.addEventListener("click", () =>{
             });
             item.addEventListener("mousedown", () => {
                 if (!erase){ 
-                    item.setAttribute("style", "background-color:black");
+                    item.setAttribute("style", `background-color:${sketch_color}`);
                 }
                 else{
                     item.setAttribute("style", "background-color:white");
                 }
             })
         });
+})
+
+sketch_col.addEventListener("change", () =>{
+    let sketch_color = document.getElementById("sketch_col").value;
+    cells = document.querySelectorAll(".cell");
+    cells.forEach((item) => {
+        item.addEventListener("mouseenter", () =>{
+            if (!erase && drawState){ 
+                item.setAttribute("style", `background-color:${sketch_color}`);
+            }
+            else if (drawState){
+                item.setAttribute("style", "background-color:white");
+            }
+        });
+        item.addEventListener("mousedown", () => {
+            if (!erase){ 
+                item.setAttribute("style", `background-color:${sketch_color}`);
+            }
+            else{
+                item.setAttribute("style", "background-color:white");
+            }
+        })
+    });
 })
