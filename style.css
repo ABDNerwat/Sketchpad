@@ -1,6 +1,6 @@
-/* * {
+* {
   outline: 2px solid red;
-} */
+}
 @font-face {
     font-family: viceCity;
     src: url(photos/rage\ italic.ttf);
@@ -48,4 +48,12 @@ button{
     min-width: 560px;
     min-height:560px;
     flex-direction: column;
+}
+.grid{
+    display: flex;
+    flex: 1;
+}
+.cell{
+    flex:1;
+    background-color: white;
 }
